@@ -13,7 +13,7 @@ import { LpMapComponent } from './lp-map/lp-map.component';
     AppComponent,
     LpHeaderComponent,
     SearchbarComponent,
-    FocusInputDirective
+    FocusInputDirective,
     LpMapComponent,
     LpHeaderComponent
   ],

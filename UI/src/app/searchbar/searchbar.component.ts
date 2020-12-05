@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 export class SearchbarComponent implements OnInit {
 
   search = new FormControl('');
-  showSearch: boolean;
+  showSearch = false;
 
   constructor() { }
 
@@ -22,6 +22,10 @@ export class SearchbarComponent implements OnInit {
 
   onBlur(): void {
     this.showSearch = false;
+    this.clearSearch();
+  }
+
+  clearSearch(): void {
     this.search.setValue('');
   }
 

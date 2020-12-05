@@ -10,7 +10,10 @@
         autocomplete="off"
         spellcheck="false"
         [lpFocusInput]="showSearch">
-    <button (click)="showSearch = true">
+    <button (click)="showSearch = true" *ngIf="!showSearch">
         <i [class.icon-search]="search.value === ''" [class.icon-cancel]="search.value !== ''"></i>
+    </button>
+    <button (click)="clearSearch()" *ngIf="showSearch">
+        <i class="icon-cancel"></i>
     </button>
 </div>
