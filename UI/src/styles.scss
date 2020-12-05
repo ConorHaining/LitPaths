@@ -1,4 +1,60 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'litpaths';
+    src: url('assets/font/litpaths.eot?51350288');
+    src: url('assets/font/litpaths.eot?51350288#iefix') format('embedded-opentype'),
+         url('assets/font/litpaths.woff2?51350288') format('woff2'),
+         url('assets/font/litpaths.woff?51350288') format('woff'),
+         url('assets/font/litpaths.ttf?51350288') format('truetype'),
+         url('assets/font/litpaths.svg?51350288#litpaths') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+  /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+  /*
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+      font-family: 'litpaths';
+      src: url('font/litpaths.svg?51350288#litpaths') format('svg');
+    }
+  }
+  */
+   
+   [class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "litpaths";
+    font-style: normal;
+    font-weight: normal;
+    speak: never;
+   
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+   
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+   
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+   
+    /* you can be more comfortable with increased icons size */
+    font-size: 120%;
+   
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
+  }
+   
+  .icon-search:before { content: '\e800'; } /* '' */
+  .icon-cancel:before { content: '\e801'; } /* '' */
+  .icon-location:before { content: '\e802'; } /* '' */
+  .icon-lightbulb:before { content: '\f0eb'; } /* '' */

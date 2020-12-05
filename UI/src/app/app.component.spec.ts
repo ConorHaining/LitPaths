@@ -1,11 +1,13 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { LpHeaderComponent } from './lp-header/lp-header.component';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        LpHeaderComponent,
       ],
     }).compileComponents();
   }));
@@ -22,10 +24,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('LitPaths');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('LitPaths app is running!');
-  });
 });
