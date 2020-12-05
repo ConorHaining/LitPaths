@@ -1,19 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { tileLayer, latLng } from 'leaflet';
 
 @Component({
   selector: 'lp-map',
   templateUrl: './lp-map.component.html',
-  styles: [
-  ]
+  styles: [ '.map { height: calc(100vh - 3.5rem); width: 100vw; }' ]
 })
 
-export class LpMapComponent implements OnInit {
-
-  constructor() {}
-
-  ngOnInit(): void {}
-
+export class LpMapComponent {
   options = {
     layers: [
       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
