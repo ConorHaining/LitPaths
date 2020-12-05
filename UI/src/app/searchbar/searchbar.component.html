@@ -1,4 +1,16 @@
 <div class="px-2 py-1 bg-gray-100 border-gray-600 focus-within:border-yellow-600 border-solid border-2 rounded-md transition-colors flex items-center">
-    <input type="search" class="bg-gray-100 text-sm" value="">
-    <i class="icon-search"></i>
+    <input
+        (blur)="onBlur()"
+        type="search" 
+        class="bg-gray-100 text-sm w-0 md:w-60 transition-all"
+        [class.w-40]="showSearch"
+        name="search"
+        [formControl]="search"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        [lpFocusInput]="showSearch">
+    <button (click)="showSearch = true">
+        <i [class.icon-search]="search.value === ''" [class.icon-cancel]="search.value !== ''"></i>
+    </button>
 </div>
