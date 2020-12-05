@@ -6,6 +6,7 @@ import { LpHeaderComponent } from './lp-header/lp-header.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FocusInputDirective } from './directives/focus-input.directive';
+import { LpMapComponent } from './lp-map/lp-map.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,8 @@ import { FocusInputDirective } from './directives/focus-input.directive';
     LpHeaderComponent,
     SearchbarComponent,
     FocusInputDirective
+    LpMapComponent,
+    LpHeaderComponent
   ],
   imports: [
     BrowserModule,
