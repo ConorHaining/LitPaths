@@ -131,6 +131,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "LitPaths"
+    }
+  },
+  "defaultProject": "LitPaths",
+  "cli": {
+    "analytics": false
+  }
 }
