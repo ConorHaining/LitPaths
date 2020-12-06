@@ -7,6 +7,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FocusInputDirective } from './directives/focus-input.directive';
 import { LpMapComponent } from './lp-map/lp-map.component';
+import { CurrentLocationButtonComponent } from './current-location-button/current-location-button.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LpMapComponent } from './lp-map/lp-map.component';
     SearchbarComponent,
     FocusInputDirective,
     LpMapComponent,
-    LpHeaderComponent
+    LpHeaderComponent,
+    CurrentLocationButtonComponent
   ],
   imports: [
     BrowserModule,
