@@ -7,6 +7,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FocusInputDirective } from './directives/focus-input.directive';
 import { LpMapComponent } from './lp-map/lp-map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LpMapComponent } from './lp-map/lp-map.component';
     BrowserModule,
     LeafletModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
