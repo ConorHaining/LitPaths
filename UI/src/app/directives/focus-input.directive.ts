@@ -4,10 +4,10 @@ import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular
   selector: '[lpFocusInput]'
 })
 export class FocusInputDirective implements OnChanges {
-  @Input('lpFocusInput') shouldFocus: boolean; 
+  @Input('lpFocusInput') shouldFocus: boolean;
 
   constructor(private el: ElementRef) {
-    if (!el.nativeElement['focus']) {
+    if (!el.nativeElement.focus) {
       throw new Error('Element does not accept focus.');
     }
   }

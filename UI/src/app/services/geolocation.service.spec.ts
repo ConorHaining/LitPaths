@@ -19,13 +19,13 @@ describe('GeolocationService', () => {
     it('it should emit true when given from the update updateGeolocation$ observable', () => {
       service.centerMap(true);
 
-      service.updateGeolocation$.subscribe(locate => expect(locate).toBeTrue())
+      service.updateGeolocation$.subscribe(locate => expect(locate).toBeTrue());
     });
-    
+
     it('it should emit false when given from the update updateGeolocation$ observable', () => {
       service.centerMap(false);
 
-      service.updateGeolocation$.subscribe(locate => expect(locate).toBeFalse())
+      service.updateGeolocation$.subscribe(locate => expect(locate).toBeFalse());
     });
 
   });
