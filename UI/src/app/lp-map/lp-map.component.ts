@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, Map } from 'leaflet';
+import { FeatureCollection } from '@turf/helpers';
+import { tileLayer, latLng, Map, circle, geoJSON, circleMarker } from 'leaflet';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GeolocationService } from '../services/geolocation.service';
+import { StreetLightsService } from '../services/streetlights.service';
 
 @Component({
   selector: 'lp-map',
@@ -24,9 +27,11 @@ export class LpMapComponent implements OnInit {
     center: latLng(55.95579868434761, -3.1885178890540264)
   };
 
+  layers = []
+
   map: Map;
 
-  constructor(private readonly geolocation: GeolocationService) {}
+  constructor(private readonly geolocation: GeolocationService, private readonly streetLightsService: StreetLightsService) {}
 
   ngOnInit(): void {
     this.geolocation.updateGeolocation$.subscribe(locate => {
@@ -40,6 +45,21 @@ export class LpMapComponent implements OnInit {
 
   onMapReady(map: Map): void {
     this.map = map;
+
+    const geojsonMarkerOptions = {
+      radius: 5,
+      fillColor: "#ffff02",
+      color: "#ffff02",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.5
+    };
+
+    this.streetLightsService.getStreetLights(this.map.getBounds().toBBoxString()).subscribe(lampLocation => {
+      this.layers.push(geoJSON<FeatureCollection>(lampLocation, {
+        pointToLayer: (feature, latlng) => (circleMarker(latlng, geojsonMarkerOptions))
+      }));
+    });
   }
 
   private centerMap(): void {

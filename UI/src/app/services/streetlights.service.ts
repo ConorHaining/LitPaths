@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class StreetlightsService {
+export class StreetLightsService {
 
   readonly streetlightsUrl = 'https://litpaths.conorhaining.com/lamps?bounds=';
 
