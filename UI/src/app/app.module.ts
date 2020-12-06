@@ -7,6 +7,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FocusInputDirective } from './directives/focus-input.directive';
 import { LpMapComponent } from './lp-map/lp-map.component';
+import { HttpClientModule } from '@angular/common/http';
 import { CurrentLocationButtonComponent } from './current-location-button/current-location-button.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CurrentLocationButtonComponent } from './current-location-button/curren
     BrowserModule,
     LeafletModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
