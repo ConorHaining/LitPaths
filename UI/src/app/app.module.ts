@@ -9,6 +9,7 @@ import { FocusInputDirective } from './directives/focus-input.directive';
 import { LpMapComponent } from './lp-map/lp-map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrentLocationButtonComponent } from './current-location-button/current-location-button.component';
+import { LocationSearchComponent } from './location-search/location-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CurrentLocationButtonComponent } from './current-location-button/curren
     FocusInputDirective,
     LpMapComponent,
     LpHeaderComponent,
-    CurrentLocationButtonComponent
+    CurrentLocationButtonComponent,
+    LocationSearchComponent
   ],
   imports: [
     BrowserModule,
