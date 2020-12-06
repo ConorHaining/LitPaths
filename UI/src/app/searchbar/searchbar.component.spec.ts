@@ -29,13 +29,13 @@ describe('SearchbarComponent', () => {
       component.onBlur();
 
       expect(component.showSearch).toBeFalse();
-    })
+    });
 
     it('should reset the value of the search', () => {
       component.onBlur();
 
       expect(component.search.value).toBe('');
-    })
+    });
 
   });
 

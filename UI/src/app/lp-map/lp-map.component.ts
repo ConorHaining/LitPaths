@@ -13,11 +13,11 @@ export class LpMapComponent implements OnInit {
 
   options = {
     layers: [
-      tileLayer(environment.map.tileLayer, { 
-        maxZoom: 18, 
-        attribution: environment.map.attribution, 
-        id: environment.map.id, 
-        accessToken: environment.map.accessToken 
+      tileLayer(environment.map.tileLayer, {
+        maxZoom: 18,
+        attribution: environment.map.attribution,
+        id: environment.map.id,
+        accessToken: environment.map.accessToken
       })
     ],
     zoom: 5,
@@ -27,7 +27,7 @@ export class LpMapComponent implements OnInit {
   map: Map;
 
   constructor(private readonly geolocation: GeolocationService) {}
-  
+
   ngOnInit(): void {
     this.geolocation.updateGeolocation$.subscribe(locate => {
       if (locate) {
