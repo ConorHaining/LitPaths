@@ -6,9 +6,9 @@ export const environment = {
   production: false,
   map: {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-    id: "",
-    accessToken:  "pk.eyJ1IjoiY29uaGFpbmluZyIsImEiOiJja2g1ZG92ZXUwMjNtMnJscDR2cDdqOGxuIn0.nqDYZlvwn5syrT4aZ84nOw",
-    tileLayer: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    id: '',
+    accessToken:  'pk.eyJ1IjoiY29uaGFpbmluZyIsImEiOiJja2g1ZG92ZXUwMjNtMnJscDR2cDdqOGxuIn0.nqDYZlvwn5syrT4aZ84nOw',
+    tileLayer: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
   }
 };
 

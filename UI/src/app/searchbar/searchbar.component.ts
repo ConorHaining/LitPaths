@@ -43,6 +43,6 @@ export class SearchbarComponent implements OnInit {
     } else {
       this.showSearch = true;
     }
-  } 
+  }
 
 }

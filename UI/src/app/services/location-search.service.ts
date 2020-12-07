@@ -24,7 +24,7 @@ export class LocationSearchService {
 
   getSearchLocations(searchValue: string): Observable<FeatureCollection> {
     if (!searchValue) { return of(featureCollection([])); }
-    
+
     let url = this.baseUrl.replace('{SEARCH}', searchValue).replace('{ACCESS_TOKEN}', environment.map.accessToken);
     url += this.geoencodingParams.toString();
     return this.http.get<FeatureCollection>(url);
