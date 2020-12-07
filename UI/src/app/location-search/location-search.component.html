@@ -1,9 +1,10 @@
-<lp-searchbar></lp-searchbar>
-<div class="absolute left-0 top-14 z-top md:right-0 md:left-auto">
-    <ul class="w-screen md:w-96">
+<lp-searchbar (searchResults)="onSearchResults($event)"></lp-searchbar>
+<div class="absolute left-0 top-14 z-top md:right-0 md:left-auto shadow-2xl" *ngIf="searchResults?.features">
+    <ul class="w-screen md:w-96 md:max-h-96 overflow-y-auto">
         <li 
-            *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+            *ngFor="let searchResult of searchResults.features"
             class="bg-gray-100 border-b border-gray-400 px-2 py-4"
-            >Place!</li>
+            (click)="updateLocation(searchResult.center)"
+            >{{ searchResult.place_name }}</li>
     </ul>
 </div>
