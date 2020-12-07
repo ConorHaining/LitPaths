@@ -14,14 +14,17 @@ export class LocationSearchComponent {
   constructor(private readonly geolocation: GeolocationService) {}
 
   searchResults: FeatureCollection;
+  showSearchbar = false;
 
   onSearchResults(searchResults: FeatureCollection ): void {
     this.searchResults = searchResults;
+    this.showSearchbar = true;
   }
 
   updateLocation(center: LatLng): void {
     this.searchResults = null;
     this.geolocation.updateCenter(latLng(center[1], center[0]));
+    this.showSearchbar = false;
   }
 
 }

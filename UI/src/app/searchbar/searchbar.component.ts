@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FeatureCollection } from '@turf/helpers';
 import { LocationSearchService } from '../services/location-search.service';
@@ -11,7 +11,7 @@ import { debounceTime } from 'rxjs/operators';
 export class SearchbarComponent implements OnInit {
 
   search = new FormControl('');
-  showSearch = false;
+  @Input() showSearch = false;
 
   @Output() searchResults = new EventEmitter<FeatureCollection>();
 
@@ -35,8 +35,14 @@ export class SearchbarComponent implements OnInit {
     // this.searchResults.emit(featureCollection())
   }
 
-  clearSearch(): void {
-    this.search.setValue('');
-  }
+  handleSearchButton(): void {
+    if (this.showSearch && this.search.value) {
+      this.search.setValue('');
+    } else if (this.showSearch && !this.search.value) {
+      this.showSearch = false;
+    } else {
+      this.showSearch = true;
+    }
+  } 
 
 }
