@@ -7,8 +7,8 @@ import { Subject } from 'rxjs';
 })
 export class GeolocationService {
 
-  private updateGeolocationSource = new Subject<boolean>();
   updateGeolocation$ = this.updateGeolocationSource.asObservable();
+  private updateGeolocationSource = new Subject<boolean>();
 
   mapCenterSource = new Subject<LatLng>();
   mapCenter$ = this.mapCenterSource.asObservable();
