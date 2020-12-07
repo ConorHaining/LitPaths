@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, Map } from 'leaflet';
+import { tileLayer, latLng, Map, LatLng } from 'leaflet';
 import { environment } from 'src/environments/environment';
 import { GeolocationService } from '../services/geolocation.service';
 
@@ -13,21 +13,20 @@ export class LpMapComponent implements OnInit {
 
   options = {
     layers: [
-      tileLayer(environment.map.tileLayer, { 
-        maxZoom: 18, 
-        attribution: environment.map.attribution, 
-        id: environment.map.id, 
-        accessToken: environment.map.accessToken 
+      tileLayer(environment.map.tileLayer, {
+        maxZoom: 18,
+        attribution: environment.map.attribution,
+        id: environment.map.id,
+        accessToken: environment.map.accessToken
       })
     ],
-    zoom: 5,
-    center: latLng(55.95579868434761, -3.1885178890540264)
   };
+  center: LatLng = latLng(55.95579868434761, -3.1885178890540264);
 
   map: Map;
 
   constructor(private readonly geolocation: GeolocationService) {}
-  
+
   ngOnInit(): void {
     this.geolocation.updateGeolocation$.subscribe(locate => {
       if (locate) {
@@ -36,6 +35,8 @@ export class LpMapComponent implements OnInit {
         this.map.stopLocate();
       }
     });
+
+    this.geolocation.mapCenter$.subscribe((center: LatLng) => this.center = center);
   }
 
   onMapReady(map: Map): void {
