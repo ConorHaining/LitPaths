@@ -75,10 +75,13 @@ export class LpMapComponent implements OnInit {
     };
 
     this.streetLightsService.getStreetLights(map.getBounds().toBBoxString()).subscribe(lampLocation => {
-      this.layers.push(geoJSON<FeatureCollection>(lampLocation, {
+      this.layers.splice(0, this.layers.length, geoJSON<FeatureCollection>(lampLocation, {
         pointToLayer: (feature, latlng) => (circleMarker(latlng, geojsonMarkerOptions))
       }));
     });
+
+    // Old code used for removing duplicates:
+    // this.layers = this.layers.filter((location, i, arr) => arr.findIndex(t => t.id === location.id) === i);
   }
 
   private centerMap(): void {
