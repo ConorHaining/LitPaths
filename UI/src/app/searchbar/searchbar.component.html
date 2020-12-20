@@ -2,7 +2,7 @@
     <input
         (blur)="onBlur()"
         type="search" 
-        class="bg-gray-100 text-sm w-0 md:w-60 transition-all"
+        class="bg-gray-100 text-sm w-0 md:w-60 transition-all appearance-none focus:outline-none"
         [class.w-32]="showSearch"
         name="search"
         [formControl]="search"
@@ -10,10 +10,7 @@
         autocomplete="off"
         spellcheck="false"
         [lpFocusInput]="showSearch">
-    <button (click)="showSearch = true" *ngIf="!showSearch">
-        <i [class.icon-search]="search.value === ''" [class.icon-cancel]="search.value !== ''"></i>
-    </button>
-    <button (click)="clearSearch()" *ngIf="showSearch">
-        <i class="icon-cancel"></i>
+    <button (click)="handleSearchButton()">
+        <i [class.icon-search]="!this.search.value" [class.icon-cancel]="this.search.value"></i>
     </button>
 </div>

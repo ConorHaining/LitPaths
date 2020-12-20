@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeatureCollection } from '@turf/helpers';
-import { tileLayer, latLng, Map, circle, geoJSON, circleMarker } from 'leaflet';
-import { Observable } from 'rxjs';
+import { tileLayer, latLng, Map, geoJSON, circleMarker, LatLng } from 'leaflet';
 import { environment } from 'src/environments/environment';
 import { GeolocationService } from '../services/geolocation.service';
 import { StreetLightsService } from '../services/streetlights.service';
@@ -23,9 +22,8 @@ export class LpMapComponent implements OnInit {
         accessToken: environment.map.accessToken
       })
     ],
-    zoom: 5,
-    center: latLng(55.95579868434761, -3.1885178890540264)
   };
+  center: LatLng = latLng(55.95579868434761, -3.1885178890540264);
 
   layers = []
 
@@ -41,6 +39,8 @@ export class LpMapComponent implements OnInit {
         this.map.stopLocate();
       }
     });
+
+    this.geolocation.mapCenter$.subscribe((center: LatLng) => this.center = center);
   }
 
   onMapReady(map: Map): void {
