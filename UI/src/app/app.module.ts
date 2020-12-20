@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrentLocationButtonComponent } from './current-location-button/current-location-button.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
 import * as Sentry from '@sentry/angular';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import * as Sentry from '@sentry/angular';
     LeafletModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {
