@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FeatureCollection } from '@turf/helpers';
 import { latLng, LatLng } from 'leaflet';
 import { GeolocationService } from '../services/geolocation.service';

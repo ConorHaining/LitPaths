@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, Map, LatLng } from 'leaflet';
+import { FeatureCollection } from '@turf/helpers';
+import { tileLayer, latLng, Map, geoJSON, circleMarker, LatLng } from 'leaflet';
 import { environment } from 'src/environments/environment';
 import { GeolocationService } from '../services/geolocation.service';
+import { StreetLightsService } from '../services/streetlights.service';
 
 @Component({
   selector: 'lp-map',
@@ -23,9 +25,11 @@ export class LpMapComponent implements OnInit {
   };
   center: LatLng = latLng(55.95579868434761, -3.1885178890540264);
 
+  layers = []
+
   map: Map;
 
-  constructor(private readonly geolocation: GeolocationService) {}
+  constructor(private readonly geolocation: GeolocationService, private readonly streetLightsService: StreetLightsService) {}
 
   ngOnInit(): void {
     this.geolocation.updateGeolocation$.subscribe(locate => {
@@ -41,6 +45,40 @@ export class LpMapComponent implements OnInit {
 
   onMapReady(map: Map): void {
     this.map = map;
+
+    const geojsonMarkerOptions = {
+      radius: 5,
+      fillColor: "#ffff02",
+      color: "#ffff02",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.5
+    };
+
+    this.streetLightsService.getStreetLights(this.map.getBounds().toBBoxString()).subscribe(lampLocation => {
+      this.layers.push(geoJSON<FeatureCollection>(lampLocation, {
+        pointToLayer: (feature, latlng) => (circleMarker(latlng, geojsonMarkerOptions))
+      }));
+    });
+  }
+
+  onMapMoveEnd(event: Event): void {
+    const map = event.target as any as Map;
+
+    const geojsonMarkerOptions = {
+      radius: 5,
+      fillColor: "#ffff02",
+      color: "#ffff02",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.5
+    };
+
+    this.streetLightsService.getStreetLights(map.getBounds().toBBoxString()).subscribe(lampLocation => {
+      this.layers = [geoJSON<FeatureCollection>(lampLocation, {
+        pointToLayer: (feature, latlng) => (circleMarker(latlng, geojsonMarkerOptions))
+      })];
+    });
   }
 
   private centerMap(): void {

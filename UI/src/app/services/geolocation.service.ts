@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { latLng, LatLng } from 'leaflet';
+import { LatLng } from 'leaflet';
 import { Subject } from 'rxjs';
 
 @Injectable({

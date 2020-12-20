@@ -29,12 +29,6 @@ export class SearchbarComponent implements OnInit {
 
   }
 
-  onBlur(): void {
-    // this.showSearch = false;
-    // this.clearSearch();
-    // this.searchResults.emit(featureCollection())
-  }
-
   handleSearchButton(): void {
     if (this.showSearch && this.search.value) {
       this.search.setValue('');

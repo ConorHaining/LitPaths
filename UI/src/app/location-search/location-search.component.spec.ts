@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LocationSearchComponent } from './location-search.component';
 
 describe('LocationSearchComponent', () => {
