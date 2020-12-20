@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LpHeaderComponent } from './lp-header/lp-header.component';
@@ -10,6 +10,7 @@ import { LpMapComponent } from './lp-map/lp-map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrentLocationButtonComponent } from './current-location-button/current-location-button.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
+import * as Sentry from '@sentry/angular';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,14 @@ import { LocationSearchComponent } from './location-search/location-search.compo
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: true,
+      }),
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

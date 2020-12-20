@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~11.0.3",
     "@angular/router": "~11.0.3",
     "@asymmetrik/ngx-leaflet": "^8.1.0",
+    "@sentry/angular": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "@turf/helpers": "^6.1.4",
     "leaflet": "^1.7.1",
     "rxjs": "~6.5.5",
