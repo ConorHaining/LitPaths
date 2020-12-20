@@ -55,10 +55,10 @@ export class LpMapComponent implements OnInit {
       fillOpacity: 0.5
     };
 
-    this.streetLightsService.getStreetLights(this.map.getBounds().toBBoxString()).subscribe(lampLocation => {
-      this.layers.push(geoJSON<FeatureCollection>(lampLocation, {
+    this.streetLightsService.getStreetLights(map.getBounds().toBBoxString()).subscribe(lampLocation => {
+      this.layers = [geoJSON<FeatureCollection>(lampLocation, {
         pointToLayer: (feature, latlng) => (circleMarker(latlng, geojsonMarkerOptions))
-      }));
+      })];
     });
   }
 
