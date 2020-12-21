@@ -35,6 +35,7 @@ export class SearchbarComponent implements OnInit {
     } else if (this.showSearch && !this.search.value) {
       this.showSearch = false;
     } else {
+      sa_event('search_button_pressed');
       this.showSearch = true;
     }
   }

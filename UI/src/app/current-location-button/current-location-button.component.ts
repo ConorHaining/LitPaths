@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GeolocationService } from '../services/geolocation.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class CurrentLocationButtonComponent {
 
   centerMap(): void {
     this.locate = !this.locate;
+    sa_event('geolocation_button_pressed');
     this.geolocation.centerMap(this.locate);
   }
 
