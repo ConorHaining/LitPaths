@@ -1,0 +1,1 @@
+declare function sa_event(name: string): void;
