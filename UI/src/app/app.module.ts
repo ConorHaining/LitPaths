@@ -13,7 +13,6 @@ import { LocationSearchComponent } from './location-search/location-search.compo
 import * as Sentry from '@sentry/angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { LpFeedbackButtonComponent } from './feedback-button/feedback-button.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { LpFeedbackButtonComponent } from './feedback-button/feedback-button.com
     LpMapComponent,
     LpHeaderComponent,
     CurrentLocationButtonComponent,
-    LocationSearchComponent,
-    LpFeedbackButtonComponent
+    LocationSearchComponent
   ],
   imports: [
     BrowserModule,
