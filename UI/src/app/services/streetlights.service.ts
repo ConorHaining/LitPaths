@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class StreetLightsService {
 
-  readonly streetlightsUrl = 'https://litpaths.conorhaining.com/lamps?bounds=';
+  readonly streetlightsUrl = 'https://litpaths.glitch.me/lamps?bounds=';
 
   constructor(private readonly http: HttpClient) {
   }
